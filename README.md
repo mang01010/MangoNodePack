@@ -101,9 +101,11 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 
 
 ---
-
-### **🔗 Shout-out**
-
-- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
-- [Stable Diffusion](https://github.com/CompVis/stable-diffusion)
+### **📢 Check out these awesome node packs!**  
+- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)  
+- [rgthree-comfy](https://github.com/rgthree/rgthree-comfy)  
+- [ComfyUI Comfyroll Custom Nodes](https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes)  
+- [ComfyUI Custom Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts)  
+- [WAS Node Suite](https://github.com/WASasquatch/was-node-suite-comfyui)  
+- [PRNodes](https://github.com/pikenrover/ComfyUI_PRNodes) 
 
