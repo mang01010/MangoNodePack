@@ -44,11 +44,15 @@
 
 - The pack started with this node. It extracts trigger words from LoRAs and concatenates them as comma delimited string that can be pushed further, so you won't have to think about these. Don't fail using downloaded LoRA ever again!
 
+![Overlay Preview](Screenshots/TriggerExporter.png)
+
 ### **2️⃣ Prompt (Mango)**
 
 💡 **Category:** Metadata
 
 - This node organizes prompts into three separate text boxes, making them easier to read and edit. It also supports direct integration with the Trigger Exporter.
+
+![Overlay Preview](Screenshots/Prompt.png)
 
 ### **3️⃣ Loader (Mango)**
 
@@ -69,6 +73,8 @@
 
 - Saves images with embedded metadata (prompt, seed, CFG, steps, sampler, checkpoint and LoRAs info), ensuring compatibility with Civitai for direct metadata reading.
 - Supports auto-numbering and custom subdirectories.
+
+![Overlay Preview](Screenshots/Metadata.png)
 
 ### **6️⃣ Latent Image (Mango)**
 
