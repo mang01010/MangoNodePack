@@ -84,7 +84,7 @@ Once installed, find the **MangoNodePack** nodes inside ComfyUI.
 
 **Example Workflow:**
 
-
+![Overlay Preview](Screenshots/Workflow.png)
 
 ---
 
