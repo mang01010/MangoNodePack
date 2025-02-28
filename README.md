@@ -29,7 +29,7 @@
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/ComfyUI-MangoNodePack.git
+   git clone https://github.com/mang01010/MangoNodePack.git
    ```
 2. Move the `MangoNodePack` folder into ComfyUI’s `custom_nodes` directory.
 3. Restart ComfyUI to load the new nodes.
