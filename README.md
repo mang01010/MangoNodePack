@@ -7,7 +7,7 @@
 ## 🚀 **Features**
 
 👉 **LoRA Metadata Exporter** – Extracts trigger words from LoRA metadata (local & online).\
-👉 **Prompt Formatter** – Organizes quality tags, descriptions, and prompt structure.\
+👉 **Prompt Formatters** – Organizes quality tags, descriptions, and prompt structure.\
 👉 **Smart Model Loader** – Loads models and LoRAs with automatic metadata extraction.\
 👉 **Enhanced KSampler** – Improved metadata tracking with LoRA and checkpoint integration.\
 👉 **Advanced Image Saver** – Saves images with embedded metadata, filenames, and auto-numbering.\
@@ -54,20 +54,26 @@
 
 ![Overlay Preview](Screenshots/Prompt.png)
 
-### **3️⃣ Loader (Mango)**
+### **3️⃣ Prompt /w Embedding (Mango)**
+
+💡 **Category:** Metadata
+
+- Does the same thing as Prompt (Mango), but divides prompt further to add embeddings in seperate field.
+
+### **4️⃣ Loader (Mango)**
 
 💡 **Category:** Loaders
 
 - Loads Stable Diffusion models and up to 5 LoRAs.
 - Computes model hashes and applies LoRAs with weight control.
 
-### **4️⃣ KSampler (Mango)**
+### **5️⃣ KSampler (Mango)**
 
 💡 **Category:** Sampling
 
 - This version of the KSampler node features eight inputs. The standard inputs—model, latent image, positive, and negative—are used for image generation. Additionally, it includes a LoRA stack, checkpoint name, and separate positive and negative text fields as a metadata workaround for:
 
-### **5️⃣ Image Saver (Mango)**
+### **6️⃣ Image Saver (Mango)**
 
 💡 **Category:** Metadata
 
@@ -76,7 +82,7 @@
 
 ![Overlay Preview](Screenshots/Metadata.png)
 
-### **6️⃣ Latent Image (Mango)**
+### **7️⃣ Latent Image (Mango)**
 
 💡 **Category:** Loaders
 
