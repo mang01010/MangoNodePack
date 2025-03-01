@@ -4,6 +4,7 @@ from .MangoLoader import MangoLoader
 from .ImageSaverMango import ImageSaverMango
 from .LatentImageMango import LatentImageMango
 from .PromptMango import PromptMango
+from .PromptEmbedMango import PromptEmbedMango
 
 NODE_CLASS_MAPPINGS = {
     "MangoTriggerExporter": MangoTriggerExporter,
@@ -11,7 +12,8 @@ NODE_CLASS_MAPPINGS = {
     "MangoLoader": MangoLoader,
     "ImageSaverMango": ImageSaverMango,
     "LatentImageMango": LatentImageMango,
-    "PromptMango": PromptMango
+    "PromptMango": PromptMango,
+    "PromptEmbedMango": PromptEmbedMango,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -20,5 +22,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "MangoLoader": "Loader (Mango)",
     "ImageSaverMango": "Image Saver (Mango)",
     "LatentImageMango": "Latent Image (Mango)",
-    "PromptMango": "Prompt (Mango)"
+    "PromptMango": "Prompt (Mango)",
+    "PromptEmbedMango": "Prompt /w Embedding (Mango)",
 }
