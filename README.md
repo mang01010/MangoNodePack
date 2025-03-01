@@ -106,6 +106,7 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 - [rgthree-comfy](https://github.com/rgthree/rgthree-comfy)  
 - [ComfyUI Comfyroll Custom Nodes](https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes)  
 - [ComfyUI Custom Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts)  
-- [WAS Node Suite](https://github.com/WASasquatch/was-node-suite-comfyui)  
+- [WAS Node Suite](https://github.com/WASasquatch/was-node-suite-comfyui)
+- [Easy-Use](https://github.com/yolain/ComfyUI-Easy-Use)
 - [PRNodes](https://github.com/pikenrover/ComfyUI_PRNodes) 
 
