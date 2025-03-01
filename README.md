@@ -103,7 +103,8 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 ---
 ### **📢 Check out these awesome node packs!**  
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)  
-- [rgthree-comfy](https://github.com/rgthree/rgthree-comfy)  
+- [rgthree-comfy](https://github.com/rgthree/rgthree-comfy)
+- [Efficiency-Nodes](https://github.com/jags111/efficiency-nodes-comfyui)
 - [ComfyUI Comfyroll Custom Nodes](https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes)  
 - [ComfyUI Custom Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts)  
 - [WAS Node Suite](https://github.com/WASasquatch/was-node-suite-comfyui)
