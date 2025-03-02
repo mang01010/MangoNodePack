@@ -9,6 +9,6 @@ Repository = "https://github.com/mang01010/MangoNodePack"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "mang01010"
 DisplayName = "MangoNodePack"
 Icon = ""
