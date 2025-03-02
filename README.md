@@ -27,6 +27,10 @@
 
 ### **Installation Steps**
 
+Find Mango Node Pack in the ComfyUI Manager!
+
+OR
+
 1. Clone the repository:
    ```sh
    git clone https://github.com/mang01010/MangoNodePack.git
