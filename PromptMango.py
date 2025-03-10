@@ -28,11 +28,12 @@ class PromptMango:
                         "rows": 3
                     }
                 ),
+            },
+            "optional": {
                 "string": (
                     "STRING",
                     {
-                        "default": "",
-                        "forceInput": True,
+                        "default": ""
                     }
                 ),
             },
@@ -42,7 +43,12 @@ class PromptMango:
     FUNCTION = "execute"
     CATEGORY = "Mango Node Pack/Metadata"
 
-    def execute(self, QualityTags, SceneDescription, Tags, string):
+    def execute(self, QualityTags="", SceneDescription="", Tags="", string=None):
+
+        if string is None:
+            string = ""
+
         parts = [s.strip() for s in (QualityTags, SceneDescription, Tags, string) if s.strip()]
         concatenated = ", ".join(parts)
+
         return (concatenated,)
