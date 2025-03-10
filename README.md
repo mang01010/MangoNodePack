@@ -4,6 +4,16 @@
 
 ---
 
+## 🚀 **UPDATE - FLUX NODES**
+
+👉 **Diffusion Model Loader** – Like SDXL/PONY version, it loads model along with clips and LoRAs, extracting metadata and and passing them as string.\
+👉 **FLUX Sampler** – Metadata tracking with LoRA and checkpoint integration.\
+👉 **FLUX Guidance** – The very same FLUX Guidance as ComfyUI original, but with guidance extraction to save as metadata.
+
+Known issue: Occasionally, not every LoRA will be visible on Civitai as the hash will not be recognized correctly. It's most likely caused by models' updates on Civitai, and re-downloading the model solves the issue.
+
+---
+
 ## 🚀 **Features**
 
 👉 **LoRA Metadata Exporter** – Extracts trigger words from LoRA metadata (local & online).\
