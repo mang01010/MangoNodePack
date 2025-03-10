@@ -5,6 +5,9 @@ from .ImageSaverMango import ImageSaverMango
 from .LatentImageMango import LatentImageMango
 from .PromptMango import PromptMango
 from .PromptEmbedMango import PromptEmbedMango
+from .CompositeMangoLoader import CompositeMangoLoader
+from .FluxSamplerMango import FluxSamplerMango
+from .FluxGuidanceMango import FluxGuidanceMango
 
 NODE_CLASS_MAPPINGS = {
     "MangoTriggerExporter": MangoTriggerExporter,
@@ -14,6 +17,9 @@ NODE_CLASS_MAPPINGS = {
     "LatentImageMango": LatentImageMango,
     "PromptMango": PromptMango,
     "PromptEmbedMango": PromptEmbedMango,
+    "CompositeMangoLoader": CompositeMangoLoader,
+    "FluxSamplerMango": FluxSamplerMango,
+    "FluxGuidanceMango": FluxGuidanceMango,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -24,4 +30,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "LatentImageMango": "Latent Image (Mango)",
     "PromptMango": "Prompt (Mango)",
     "PromptEmbedMango": "Prompt /w Embedding (Mango)",
+    "CompositeMangoLoader": "Diffusion Loader (Mango)",
+    "FluxSamplerMango": "FluxSampler (Mango)",
+    "FluxGuidanceMango": "FluxGuidance (Mango)",
 }
