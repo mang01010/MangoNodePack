@@ -51,7 +51,12 @@ class PromptEmbedMango:
     FUNCTION = "execute"
     CATEGORY = "Mango Node Pack/Metadata"
 
-    def execute(self, QualityTags, SceneDescription, Tags, Embeddings, string=""):
+    def execute(self, QualityTags="", SceneDescription="", Tags="", Embeddings="", string=None):
+
+        if string is None:
+            string = ""
+
         parts = [s.strip() for s in (QualityTags, SceneDescription, Tags, Embeddings, string) if s.strip()]
         concatenated = ", ".join(parts)
+
         return (concatenated,)
