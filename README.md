@@ -7,7 +7,7 @@
 ## 🚀 **NEW NODES**
 
 👉 **Prompt Saver** – Don't lose your prompts ever again, by saving their copy in the output folder (or specified subfolder).\
-👉 **Prompt Loader** – Load saved prompts easily from the dropdown list, and connect to the Positive/Negative nodes.\
+👉 **Prompt Loader** – Load saved prompts easily from the dropdown list, and connect to the Positive/Negative nodes.
 
 ![Overlay Preview](Screenshots/LoadPrompt.png)
 
