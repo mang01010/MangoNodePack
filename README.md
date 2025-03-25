@@ -4,6 +4,15 @@
 
 ---
 
+## 🚀 **NEW NODES**
+
+👉 **Prompt Saver** – Don't lose your prompts ever again, by saving their copy in the output folder (or specified subfolder).\
+👉 **Prompt Loader** – Load saved prompts easily from the dropdown list, and connect to the Positive/Negative nodes.\
+
+![Overlay Preview](Screenshots/LoadPrompt.png)
+
+---
+
 ## 🚀 **UPDATE - FLUX NODES**
 
 👉 **Diffusion Model Loader** – Like SDXL/PONY version, it loads model along with clips and LoRAs, extracting metadata and and passing them as string.\
