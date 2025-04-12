@@ -131,13 +131,17 @@ class KSamplerMango(BaseNode):
             denoise=denoise,
             model_options={}
         )
+
+        noise_mask = latent_image.get("noise_mask", None)
+        
         out_latent = ksampler.sample(
             noise,
             positive,
             negative,
             cfg,
             latent_image=latent_tensor,
-            seed=used_seed
+            seed=used_seed,
+            denoise_mask=noise_mask
         )
         LAST_USED_SEED = used_seed
 
