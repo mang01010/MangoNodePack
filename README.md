@@ -4,22 +4,9 @@
 
 ---
 
-## 🚀 **NEW NODES**
+## **UPDATE**
 
-👉 **Prompt Saver** – Don't lose your prompts ever again, by saving their copy in the output folder (or specified subfolder).\
-👉 **Prompt Loader** – Load saved prompts easily from the dropdown list, and connect to the Positive/Negative nodes.
-
-![Overlay Preview](Screenshots/LoadPrompt.png)
-
----
-
-## 🚀 **UPDATE - FLUX NODES**
-
-👉 **Diffusion Model Loader** – Like SDXL/PONY version, it loads model along with clips and LoRAs, extracting metadata and and passing them as string.\
-👉 **FLUX Sampler** – Metadata tracking with LoRA and checkpoint integration.\
-👉 **FLUX Guidance** – The very same FLUX Guidance as ComfyUI original, but with guidance extraction to save as metadata.
-
-Known issue: Occasionally, not every LoRA will be visible on Civitai as the hash will not be recognized correctly. It's most likely caused by models' updates on Civitai, and re-downloading the model solves the issue.
+Now the Image Saver keeps the workflow data in the image! Just drag and drop the image to open the workflow it was created with!
 
 ---
 
@@ -29,8 +16,15 @@ Known issue: Occasionally, not every LoRA will be visible on Civitai as the hash
 👉 **Prompt Formatters** – Organizes quality tags, descriptions, and prompt structure.\
 👉 **Smart Model Loader** – Loads models and LoRAs with automatic metadata extraction.\
 👉 **Enhanced KSampler** – Improved metadata tracking with LoRA and checkpoint integration.\
+👉 **Diffusion Model Loader** – Like SDXL/PONY version, it loads model along with clips and LoRAs, extracting metadata and and passing them as string.\
+👉 **FLUX Sampler** – Metadata tracking with LoRA and checkpoint integration.\
+👉 **FLUX Guidance** – The very same FLUX Guidance as ComfyUI original, but with guidance extraction to save as metadata.\
 👉 **Advanced Image Saver** – Saves images with embedded metadata, filenames, and auto-numbering.\
 👉 **Custom Latent Generator** – Predefined resolutions for common aspect ratios.
+👉 **Prompt Saver** – Don't lose your prompts ever again, by saving their copy in the output folder (or specified subfolder).\
+👉 **Prompt Loader** – Load saved prompts easily from the dropdown list, and connect to the Positive/Negative nodes.
+
+Known issue: Occasionally, not every LoRA will be visible on Civitai as the hash will not be recognized correctly. It's most likely caused by models' updates on Civitai, and re-downloading the model solves the issue.
 
 ---
 
@@ -110,6 +104,15 @@ OR
 💡 **Category:** Loaders
 
 - Generates latent tensors in predefined aspect ratios (e.g., 1:1, 16:9, etc.).
+
+### **8️⃣ Prompt Saver and Loader**
+
+💡 **Category:** Metadata
+
+- Save a copy of prompts in the default output folder (or specified subfolder).
+- Load saved prompts easily from the dropdown list, and connect to the Positive/Negative nodes.
+
+![Overlay Preview](Screenshots/LoadPrompt.png)
 
 ---
 
