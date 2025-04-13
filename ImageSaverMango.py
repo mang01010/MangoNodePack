@@ -21,6 +21,10 @@ class ImageSaverMango:
                 "metadata": ("METADATA", {"tooltip": "Metadata dictionary from upstream (e.g. from KSampler (Mango))"}),
                 "filename_prefix": ("STRING", {"default": "ComfyUI", "tooltip": "Prefix for the saved file. Supports placeholders like %date:hhmmss%."}),
                 "subdirectory_name": ("STRING", {"default": "", "tooltip": "Custom subdirectory (inside the output folder) to save the image."}),
+            },
+            "hidden": {
+                "prompt": "PROMPT",
+                "extra_pnginfo": "EXTRA_PNGINFO",
             }
         }
 
@@ -37,7 +41,7 @@ class ImageSaverMango:
         self.compress_level = 4
         self.prefix_append = ""
 
-    def save_images(self, images, metadata, filename_prefix="ComfyUI", subdirectory_name=""):
+    def save_images(self, images, metadata, filename_prefix="ComfyUI", subdirectory_name="", prompt=None, extra_pnginfo=None):
         param_string = self.build_param_string(metadata)
 
         base_name = self.format_filename(filename_prefix, metadata) + self.prefix_append
@@ -57,7 +61,7 @@ class ImageSaverMango:
             arr = self.to_uint8(image)
             pil_img = Image.fromarray(arr)
             # Build a PngInfo object.
-            pnginfo = self.prepare_pnginfo(metadata, i, len(images))
+            pnginfo = self.prepare_pnginfo(metadata, i, len(images), prompt=prompt, extra_pnginfo=extra_pnginfo)           #added prompt=prompt, extra_pnginfo=extra_pnginfo)
             pnginfo.add_text("parameters", param_string)
             suffix_number = start_suffix + i
             filename_with_suffix = f"{base_name}_{suffix_number:05d}"
@@ -108,13 +112,18 @@ class ImageSaverMango:
             arr = np.array(image) * 255.0
         return np.clip(arr, 0, 255).astype(np.uint8)
 
-    def prepare_pnginfo(self, meta_dict, index, total):
+    def prepare_pnginfo(self, meta_dict, index, total, prompt=None, extra_pnginfo=None):            #added prompt=None, extra_pnginfo=None
         pnginfo = PngImagePlugin.PngInfo()
         if total > 1:
             pnginfo.add_text("Batch index", str(index))
             pnginfo.add_text("Batch size", str(total))
         for key, value in meta_dict.items():
             pnginfo.add_text(str(key), str(value))
+        if prompt is not None:                                                                      #added from here...
+            pnginfo.add_text("prompt", json.dumps(prompt))
+        if extra_pnginfo is not None:
+            for k, v in extra_pnginfo.items():
+                pnginfo.add_text(str(k), json.dumps(v))                                             #...to here
         return pnginfo
 
     def format_filename(self, filename, meta_dict):
