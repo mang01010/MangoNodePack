@@ -20,7 +20,7 @@ Now the Image Saver keeps the workflow data in the image! Just drag and drop the
 👉 **FLUX Sampler** – Metadata tracking with LoRA and checkpoint integration.\
 👉 **FLUX Guidance** – The very same FLUX Guidance as ComfyUI original, but with guidance extraction to save as metadata.\
 👉 **Advanced Image Saver** – Saves images with embedded metadata, filenames, and auto-numbering.\
-👉 **Custom Latent Generator** – Predefined resolutions for common aspect ratios.
+👉 **Custom Latent Generator** – Predefined resolutions for common aspect ratios.\
 👉 **Prompt Saver** – Don't lose your prompts ever again, by saving their copy in the output folder (or specified subfolder).\
 👉 **Prompt Loader** – Load saved prompts easily from the dropdown list, and connect to the Positive/Negative nodes.
 
