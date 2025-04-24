@@ -1,9 +1,12 @@
 import os
-import re
 import json
 import torch
 import hashlib
 from comfy import samplers
+import comfy.sample
+import comfy.utils
+import comfy.model_management
+import latent_preview
 import folder_paths
 from .MangoTriggerExporter import get_lora_metadata
 
@@ -18,14 +21,15 @@ def short_sha256(file_path):
             h.update(chunk)
     return h.hexdigest()[:10]
 
+
 def find_model_file_and_hash(model_name):
     candidate = folder_paths.get_full_path("checkpoints", model_name)
     if candidate and os.path.exists(candidate):
         return (os.path.basename(candidate), short_sha256(candidate))
     return (model_name, "no_file")
 
-def parse_loras_from_stack(lora_stack):
 
+def parse_loras_from_stack(lora_stack):
     results = {}
     if not lora_stack:
         return results
@@ -42,8 +46,10 @@ def parse_loras_from_stack(lora_stack):
                     results[base] = base
     return results
 
+
 class BaseNode:
     pass
+
 
 class KSamplerMango(BaseNode):
     CATEGORY = "Mango Node Pack/Sampling"
@@ -79,8 +85,7 @@ class KSamplerMango(BaseNode):
     RETURN_TYPES = ("LATENT", "METADATA", "STRING")
     RETURN_NAMES = ("LATENT", "METADATA", "METADATA_TEXT")
     DESCRIPTION = (
-        "KSampler (Mango) that assembles metadata including prompts, checkpoint info, and LoRA info. "
-        "It uses the 'ckpt_name' input to look up the checkpoint file and compute its hash, and processes the LoRA stack to produce LoRA info."
+        "KSampler (Mango) with live preview and cancel support, plus metadata compilation."
     )
 
     def sample(
@@ -104,9 +109,13 @@ class KSamplerMango(BaseNode):
         extra_pnginfo=None,
         my_unique_id=None
     ):
+        # Check for cancellation before starting
+        comfy.model_management.throw_exception_if_processing_interrupted()
+
         global LAST_USED_SEED
         used_seed = LAST_USED_SEED if (reuse_seed and LAST_USED_SEED is not None) else seed
 
+        # Determine device
         if hasattr(model, "device"):
             device = model.device
         else:
@@ -115,36 +124,44 @@ class KSamplerMango(BaseNode):
             except Exception:
                 device = torch.device("cpu")
 
+        # Validate latent_image
         if not isinstance(latent_image, dict) or "samples" not in latent_image:
             raise ValueError("Invalid latent_image input. Provide a valid LATENT node output.")
         latent_tensor = latent_image["samples"]
+        noise_mask = latent_image.get("noise_mask", None)
 
+        # Generate noise
         generator = torch.Generator(device=device).manual_seed(used_seed)
         noise = torch.randn(latent_tensor.shape, generator=generator, device=device, dtype=latent_tensor.dtype)
 
-        ksampler = samplers.KSampler(
-            model,
-            steps,
-            device,
-            sampler=sampler_name,
-            scheduler=scheduler,
-            denoise=denoise,
-            model_options={}
-        )
+        # Prepare live preview callback
+        callback = latent_preview.prepare_callback(model, steps)
+        disable_pbar = not comfy.utils.PROGRESS_BAR_ENABLED
 
-        noise_mask = latent_image.get("noise_mask", None)
-        
-        out_latent = ksampler.sample(
+        # Perform sampling with preview and cancellation support
+        samples_out = comfy.sample.sample(
+            model,
             noise,
+            steps,
+            cfg,
+            sampler_name,
+            scheduler,
             positive,
             negative,
-            cfg,
-            latent_image=latent_tensor,
-            seed=used_seed,
-            denoise_mask=noise_mask
+            latent_tensor,
+            denoise=denoise,
+            noise_mask=noise_mask,
+            callback=callback,
+            disable_pbar=disable_pbar,
+            seed=used_seed
         )
         LAST_USED_SEED = used_seed
 
+        # Build output latent structure
+        out_latent = latent_image.copy()
+        out_latent["samples"] = samples_out
+
+        # Compile metadata
         metadata = {}
         metadata["Seed"] = used_seed
         metadata["Steps"] = steps
@@ -178,9 +195,10 @@ class KSamplerMango(BaseNode):
                         base = os.path.basename(ln)
                         lora_path = folder_paths.get_full_path("loras", ln)
                         if lora_path and os.path.exists(lora_path):
-                            hash_dict["lora:" + base] = short_sha256(lora_path)
+                            hash_dict[f"lora:{base}"] = short_sha256(lora_path)
         metadata["Hashes"] = json.dumps(hash_dict)
 
+        # Include any extra PNG info
         if extra_pnginfo is not None and isinstance(extra_pnginfo, dict):
             for k, v in extra_pnginfo.items():
                 s = str(v)
@@ -190,4 +208,4 @@ class KSamplerMango(BaseNode):
             metadata["prompt"] = s if len(s) < 1000 else s[:1000] + " [truncated]"
 
         metadata_str = json.dumps(metadata, indent=2)
-        return ({"samples": out_latent}, metadata, metadata_str)
+        return (out_latent, metadata, metadata_str)
