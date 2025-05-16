@@ -6,7 +6,11 @@
 
 ## **UPDATE**
 
-Now the Image Saver keeps the workflow data in the image! Just drag and drop the image to open the workflow it was created with!
+Added Image Loader for batch load images for Img2Img creations. To use it:
+1. Create a new folder in the output folder
+2. Insert a batch of images to the created folder
+3. Browse and choose output's subfolders from a dropdown list of the node
+4. All images in the folder will be processed in Img2Img creations
 
 ---
 
