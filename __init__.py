@@ -11,6 +11,7 @@ from .FluxGuidanceMango import FluxGuidanceMango
 from .MangoPromptSave import PromptSave
 from .MangoPromptLoad import MangoPromptLoad
 from .LoraStackMango import LoraStackMango
+from .MangoImageLoader import MangoImageLoader
 
 NODE_CLASS_MAPPINGS = {
     "MangoTriggerExporter": MangoTriggerExporter,
@@ -26,6 +27,8 @@ NODE_CLASS_MAPPINGS = {
     "PromptSave":          PromptSave,
     "MangoPromptLoad":     MangoPromptLoad,
     "LoraStackMango":      LoraStackMango,
+    "MangoImageLoader":    MangoImageLoader,
+
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -42,4 +45,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "PromptSave":          "Save Prompt (Mango)",
     "MangoPromptLoad":     "Load Prompt (Mango)",
     "LoraStackMango":      "LoRA Stack (Mango)",
+    "MangoImageLoader":    "Image Loader (Mango)",
+
 }
