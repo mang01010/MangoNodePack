@@ -15,7 +15,6 @@ except ImportError:
     safe_open = None
 
 import folder_paths
-import requests
 
 #METADATA FETCHING
 
@@ -28,23 +27,11 @@ def calculate_sha256(file_path):
 
 def get_model_version_info(hash_value):
     api_url = f"https://civitai.com/api/v1/model-versions/by-hash/{hash_value}"
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/112.0.0.0 Safari/537.36"
-        ),
-        "Accept": "application/json, text/plain, */*",
-    }
-    try:
-        resp = requests.get(api_url, headers=headers, timeout=5)
-        if resp.status_code == 200:
-            return resp.json()
-        print(f"⚠️ Civitai returned {resp.status_code} for hash {hash_value}")
-    except Exception as e:
-        print(f"⚠️ Civitai lookup failed for {hash_value}: {e}")
-    return {}
-
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return {}
 
 def parse_local_safetensors_metadata(lora_path):
     if not safe_open:

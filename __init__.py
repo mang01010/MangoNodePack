@@ -12,6 +12,7 @@ from .MangoPromptSave import PromptSave
 from .MangoPromptLoad import MangoPromptLoad
 from .LoraStackMango import LoraStackMango
 from .MangoImageLoader import MangoImageLoader
+from .MangoLoader10Loras import MangoLoader10Loras
 
 NODE_CLASS_MAPPINGS = {
     "MangoTriggerExporter": MangoTriggerExporter,
@@ -28,7 +29,7 @@ NODE_CLASS_MAPPINGS = {
     "MangoPromptLoad":     MangoPromptLoad,
     "LoraStackMango":      LoraStackMango,
     "MangoImageLoader":    MangoImageLoader,
-
+    "MangoLoader10Loras":  MangoLoader10Loras,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -46,5 +47,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "MangoPromptLoad":     "Load Prompt (Mango)",
     "LoraStackMango":      "LoRA Stack (Mango)",
     "MangoImageLoader":    "Image Loader (Mango)",
-
+    "MangoLoader10Loras":  "Loader (Mango + 10 Loras)",
 }
