@@ -55,6 +55,7 @@ class FluxNoise:
     def generate_noise(self, latent):
         return self.noise_tensor
 
+
 def inline_basic_guider(model, conditioning):
     """
     Build a simple guider using CFGGuider with a single 'positive' conditioning.
@@ -63,6 +64,7 @@ def inline_basic_guider(model, conditioning):
     guider = comfy.samplers.CFGGuider(model)
     guider.inner_set_conds({"positive": conditioning})
     return guider
+
 
 def inline_basic_scheduler(model, scheduler, steps, denoise):
     """
@@ -107,6 +109,10 @@ class FluxSamplerMango:
                 "scheduler": (comfy.samplers.SCHEDULER_NAMES,),
                 "steps": ("INT", {"default": 20, "min": 1, "max": 10000}),
                 "denoise": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01}),
+            },
+            "hidden": {
+                "prompt": "PROMPT",
+                "extra_pnginfo": "EXTRA_PNGINFO",
             }
         }
 
@@ -129,6 +135,8 @@ class FluxSamplerMango:
         scheduler,
         steps,
         denoise,
+        prompt=None,
+        extra_pnginfo=None,
     ):
         global LAST_USED_NOISE, LAST_USED_NOISE_SEED
 
@@ -196,8 +204,6 @@ class FluxSamplerMango:
         metadata["Sampler"] = sampler_name
         metadata["Scheduler"] = scheduler
         metadata["Denoise"] = denoise
-
-        # Use the separate flux_guidance float for CFG scale
         metadata["CFG scale"] = flux_guidance
 
         used_ckpt = str(unet_name).strip() if unet_name and str(unet_name).strip() else "UnknownModel"
@@ -229,6 +235,16 @@ class FluxSamplerMango:
                         else:
                             hash_dict["lora:" + base] = base
         metadata["Hashes"] = json.dumps(hash_dict)
+
+        # Include extra PNG info and workflow metadata if provided
+        if extra_pnginfo is not None and isinstance(extra_pnginfo, dict):
+            for k, v in extra_pnginfo.items():
+                s = str(v)
+                metadata[k] = s if len(s) < 1000 else s[:1000] + " [truncated]"
+        if prompt is not None:
+            s = str(prompt)
+            metadata["prompt"] = s if len(s) < 1000 else s[:1000] + " [truncated]"
+
         metadata_str = json.dumps(metadata, indent=2)
 
         return ({"samples": out["samples"]}, metadata, metadata_str)

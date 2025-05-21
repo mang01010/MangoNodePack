@@ -8,10 +8,12 @@ class LatentImageMango:
             "3:4 portrait 896x1152",
             "5:8 portrait 832x1216",
             "9:16 portrait 768x1344",
+            "9:16 portrait XL 1024x1820",
             "9:21 portrait 640x1536",
             "4:3 landscape 1152x896",
             "3:2 landscape 1216x832",
             "16:9 landscape 1344x768",
+            "16:9 landscape XL 1820x1024",
             "21:9 landscape 1536x640",
             "32:9 landscape 1600x450"
         ]
@@ -35,6 +37,8 @@ class LatentImageMango:
             width, height = 832, 1216
         elif dimensions == "9:16 portrait 768x1344":
             width, height = 768, 1344
+        elif dimensions == "9:16 portrait XL 1024x1820":
+            width, height = 1024, 1820
         elif dimensions == "9:21 portrait 640x1536":
             width, height = 640, 1536
         elif dimensions == "4:3 landscape 1152x896":
@@ -43,6 +47,8 @@ class LatentImageMango:
             width, height = 1216, 832
         elif dimensions == "16:9 landscape 1344x768":
             width, height = 1344, 768
+        elif dimensions == "16:9 landscape XL 1820x1024":
+            width, height = 1820, 1024
         elif dimensions == "21:9 landscape 1536x640":
             width, height = 1536, 640
         elif dimensions == "32:9 landscape 1600x450":
