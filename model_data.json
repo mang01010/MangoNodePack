@@ -1,0 +1,12 @@
+{
+    "animij_v5.safetensors": {
+        "clip_skip": "2",
+        "steps": "30+",
+        "cfg": "4-7",
+        "sampler_name": "Euler a",
+        "scheduler": "N/A",
+
+        "positive": "N/A",
+        "negative": "worst_quality, bad_quality, poorly_detailed"
+    }
+}
