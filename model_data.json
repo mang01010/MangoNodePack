@@ -1,0 +1,72 @@
+{
+    "animij_v5.safetensors": {
+        "clip_skip": "2",
+        "steps": "30+",
+        "cfg": "4-7",
+        "sampler_name": "Euler a",
+        "scheduler": "N/A",
+
+        "positive": "N/A",
+        "negative": "worst_quality, bad_quality, poorly_detailed",
+
+        "resolution": "1024"
+    },
+    "realDream_sdxlPony15.safetensors": {
+        "clip_skip": "2",
+        "steps": "20-30",
+        "cfg": "5-9",
+        "sampler_name": "Euler a / DPM++ SDE",
+        "scheduler": "Karras",
+
+        "positive": "score_9, score_8_up, score_7_up, (Masterpiece, Best Quality, Highres:1.2), 35mm lens, 35mm RAW photo, photorealistic, realistic, extremely detailed, film grain, front light",
+        "negative": "score_6, score_5, score_4, score_2, score_1",
+
+        "resolution": "512 / 768",
+        "High-Res Fix tip": "Upscale by 1.5 and denoise at 0.6",
+
+        "Recommended Lora 1": "amateur_style_v1_pony.safetensors @ 2.5",
+        "Recommended Lora 2": "Dramatic Lighting Slider.safetensors @ 1.5"
+    },
+    "ponyDiffusionV6XL_v6StartWithThisOne.safetensors": {
+        "clip_skip": "2",
+        "steps": "25-30",
+        "cfg": "5-9",
+        "sampler_name": "Euler a",
+        "scheduler": "N/A",
+
+        "positive": "score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, just describe what you want, tag1, tag2",
+        "negative": "N/A",
+
+        "resolution": "1024"
+    },
+    "ultrarealFineTune_v4.safetensors": {
+        "steps": "30-50",
+        "cfg": "0.9-1",
+        "sampler_name": "DPM++ 2M",
+        "scheduler": "Beta"
+    },
+    "8StepsCreartHyperFlux_creartUltimate.safetensors": {
+        "steps": "8-10",
+        "cfg": "3.5",
+        "sampler_name": "Euler",
+        "scheduler": "Beta"
+    },
+    "c4pacitor_xV1.safetensors": {
+        "steps": "16-32",
+        "cfg": "3-6",
+        "sampler_name": "DEIS",
+        "scheduler": "Beta/Beta57/Bong Tangent"
+    },
+    "77FluxAnime_i.safetensors": {
+        "steps": "25-30",
+        "cfg": "3.5-7.5",
+        "sampler_name": "euler",
+        "scheduler": "normal"
+    },
+    "illustriousNova_V10.safetensors": {
+        "steps": "30-50",
+        "cfg": "5-7",
+        "sampler_name": "DPM++ 2M SDE",
+        "scheduler": "Karras"
+    }
+}
