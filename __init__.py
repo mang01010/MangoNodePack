@@ -14,6 +14,7 @@ from .LoraStackMango import LoraStackMango
 from .MangoImageLoader import MangoImageLoader
 from .MangoLoader10Loras import MangoLoader10Loras
 from .MangoModelData import MangoModelData
+from .MangoTextString import MangoTextString
 
 NODE_CLASS_MAPPINGS = {
     "MangoTriggerExporter":     MangoTriggerExporter,
@@ -32,6 +33,7 @@ NODE_CLASS_MAPPINGS = {
     "MangoImageLoader":         MangoImageLoader,
     "MangoLoader10Loras":       MangoLoader10Loras,
     "MangoModelData":           MangoModelData,
+    "MangoTextString":          MangoTextString,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -51,4 +53,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "MangoImageLoader":          "Image Loader (Mango)",
     "MangoLoader10Loras":        "Loader (Mango + 10 Loras)",
     "MangoModelData":            "Model Data (Mango)",
+    "MangoTextString":           "Text String (Mango)",
 }
